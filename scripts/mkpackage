@@ -1,0 +1,7 @@
+#!/bin/sh
+
+VERSION=1.4
+
+echo "Packing lola-$VERSION.tar.gz"
+
+cd ..;tar -zcvf lola/lola-$VERSION.tar.gz lola/backups/area_current.tar.gz lola/backups/clans.tar.gz lola/backups/data.tar.gz lola/backups/doc.tar.gz lola/backups/scripts.tar.gz lola/backups/src.tar.gz lola/backups/castles.tar.gz lola/player/l/o/Lola lola/install lola/README

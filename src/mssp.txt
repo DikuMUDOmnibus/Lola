@@ -1,0 +1,63 @@
+
+int process_do_mssp( DESCRIPTOR_DATA *d, unsigned char *src, int srclen )
+{
+	descriptor_printf(d, "%c%c%c", IAC, SB, TELOPT_MSSP);
+
+	descriptor_printf(d, "%c%s%c%s", MSSP_VAR, "NAME",              MSSP_VAL, "Lowlands");
+	descriptor_printf(d, "%c%s%c%d", MSSP_VAR, "PLAYERS",           MSSP_VAL, mud->total_plr);
+	descriptor_printf(d, "%c%s%c%d", MSSP_VAR, "UPTIME",            MSSP_VAL, mud->boot_time);
+
+	descriptor_printf(d, "%c%s%c%d", MSSP_VAR, "CRAWL DELAY",       MSSP_VAL, 11);
+	descriptor_printf(d, "%c%s%c%s", MSSP_VAR, "CODEBASE",          MSSP_VAL, "Lola 1.4");
+	descriptor_printf(d, "%c%s%c%s", MSSP_VAR, "CONTACT",           MSSP_VAL, "");
+	descriptor_printf(d, "%c%s%c%s", MSSP_VAR, "CREATED",           MSSP_VAL, "2007");
+	descriptor_printf(d, "%c%s%c%s", MSSP_VAR, "HOSTNAME",          MSSP_VAL, "lolamud.net");
+	descriptor_printf(d, "%c%s%c%s", MSSP_VAR, "ICON",              MSSP_VAL, "");
+	descriptor_printf(d, "%c%s%c%s", MSSP_VAR, "IP",                MSSP_VAL, "217.19.28.128");
+	descriptor_printf(d, "%c%s%c%s", MSSP_VAR, "LANGUAGE",          MSSP_VAL, "English");
+	descriptor_printf(d, "%c%s%c%s", MSSP_VAR, "LOCATION",          MSSP_VAL, "Netherlands");
+	descriptor_printf(d, "%c%s%c%s", MSSP_VAR, "MINIMUM AGE",       MSSP_VAL, "0");
+	descriptor_printf(d, "%c%s%c%s", MSSP_VAR, "PORT",              MSSP_VAL, "6969");
+
+	descriptor_printf(d, "%c%s%c%s", MSSP_VAR, "FAMILY",            MSSP_VAL, "Emud");
+	descriptor_printf(d, "%c%s%c%s", MSSP_VAR, "FAMILY",            MSSP_VAL, "MrMud");
+	descriptor_printf(d, "%c%s%c%s", MSSP_VAR, "FAMILY",            MSSP_VAL, "Merc");
+	descriptor_printf(d, "%c%s%c%s", MSSP_VAR, "FAMILY",            MSSP_VAL, "DikuMUD");
+	descriptor_printf(d, "%c%s%c%s", MSSP_VAR, "WEBSITE",           MSSP_VAL, "");
+
+	descriptor_printf(d, "%c%s%c%s", MSSP_VAR, "GENRE",             MSSP_VAL, "Fantasy");
+	descriptor_printf(d, "%c%s%c%s", MSSP_VAR, "STATUS",            MSSP_VAL, "LIVE");
+	descriptor_printf(d, "%c%s%c%s", MSSP_VAR, "SUBGENRE",          MSSP_VAL, "Medieval Fantasy");
+	descriptor_printf(d, "%c%s%c%s", MSSP_VAR, "GAMEPLAY",          MSSP_VAL, "Hack and Slash");
+	descriptor_printf(d, "%c%s%c%s", MSSP_VAR, "GAMESYSTEM",        MSSP_VAL, "Custom");
+
+	descriptor_printf(d, "%c%s%c%d", MSSP_VAR, "AREAS",             MSSP_VAL, mud->top_area);
+	descriptor_printf(d, "%c%s%c%d", MSSP_VAR, "HELPFILES",         MSSP_VAL, mud->top_help);
+	descriptor_printf(d, "%c%s%c%d", MSSP_VAR, "MOBILES",           MSSP_VAL, mud->top_mob_index);
+	descriptor_printf(d, "%c%s%c%d", MSSP_VAR, "OBJECTS",           MSSP_VAL, mud->top_obj_index);
+	descriptor_printf(d, "%c%s%c%d", MSSP_VAR, "ROOMS",             MSSP_VAL, mud->top_room);
+	descriptor_printf(d, "%c%s%c%d", MSSP_VAR, "RESETS",            MSSP_VAL, mud->top_reset);
+
+	descriptor_printf(d, "%c%s%c%d", MSSP_VAR, "CLASSES",           MSSP_VAL, MAX_CLASS);
+	descriptor_printf(d, "%c%s%c%d", MSSP_VAR, "LEVELS",            MSSP_VAL, MAX_LEVEL);
+	descriptor_printf(d, "%c%s%c%d", MSSP_VAR, "RACES",             MSSP_VAL, MAX_RACE);
+	descriptor_printf(d, "%c%s%c%d", MSSP_VAR, "SKILLS",            MSSP_VAL, MAX_SKILL);
+
+	descriptor_printf(d, "%c%s%c%d", MSSP_VAR, "ANSI",              MSSP_VAL, 1);
+	descriptor_printf(d, "%c%s%c%d", MSSP_VAR, "MCCP",              MSSP_VAL, 1);
+	descriptor_printf(d, "%c%s%c%d", MSSP_VAR, "MCP",               MSSP_VAL, 0);
+	descriptor_printf(d, "%c%s%c%d", MSSP_VAR, "MSP",               MSSP_VAL, 0);
+	descriptor_printf(d, "%c%s%c%d", MSSP_VAR, "MXP",               MSSP_VAL, 0);
+	descriptor_printf(d, "%c%s%c%d", MSSP_VAR, "PUEBLO",            MSSP_VAL, 0);
+	descriptor_printf(d, "%c%s%c%d", MSSP_VAR, "VT100",             MSSP_VAL, 1);
+	descriptor_printf(d, "%c%s%c%d", MSSP_VAR, "XTERM 256 COLORS",  MSSP_VAL, 1);
+
+	descriptor_printf(d, "%c%s%c%d", MSSP_VAR, "PAY TO PLAY",       MSSP_VAL, 0);
+	descriptor_printf(d, "%c%s%c%d", MSSP_VAR, "PAY FOR PERKS",     MSSP_VAL, 0);
+	descriptor_printf(d, "%c%s%c%d", MSSP_VAR, "HIRING BUILDERS",   MSSP_VAL, 0);
+	descriptor_printf(d, "%c%s%c%d", MSSP_VAR, "HIRING CODERS",     MSSP_VAL, 0);
+
+	descriptor_printf(d, "%c%c", IAC, SE);
+
+	return 3;
+}
